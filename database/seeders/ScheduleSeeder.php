@@ -36,7 +36,7 @@ class ScheduleSeeder extends Seeder
                         'tanggal' => $tanggal->toDateString(),
                         'jam_mulai' => $jam[0],
                         'jam_selesai' => $jam[1],
-                        'status' => 'tersedia',
+                        'status' => 'available',
                     ]);
                 }
             }

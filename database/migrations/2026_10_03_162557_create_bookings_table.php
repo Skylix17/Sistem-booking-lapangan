@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('schedule_id')->constrained('schedules')->onDelete('cascade');
             $table->date('tanggal_booking');
             $table->decimal('total_harga', 12, 2);
-            $table->enum('status', ['pending', 'confirmed', 'cancelled'])
+            $table->enum('status', ['pending', 'confirmed','rejected', 'cancelled','completed'])
                   ->default('pending');
             $table->timestamps();
         });

@@ -20,8 +20,8 @@ return new class extends Migration
             $table->text('fasilitas')->nullable();
             $table->text('deskripsi')->nullable();
             $table->string('foto')->nullable();
-            $table->enum('status', ['tersedia', 'tidak_tersedia'])
-                  ->default('tersedia');
+            $table->enum('status', ['available', 'unavailable'])
+                  ->default('available');
             $table->timestamps();
         });
     }
