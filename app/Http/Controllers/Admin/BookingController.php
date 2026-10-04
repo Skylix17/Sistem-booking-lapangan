@@ -114,7 +114,7 @@ class BookingController extends Controller
                     if (
                         now()->lt(
                             \Carbon\Carbon::parse(
-                                $schedule->tanggal . ' ' .
+                                $schedule->tanggal->format('Y-m-d') . ' ' .
                                 $schedule->jam_selesai
                             )
                         )

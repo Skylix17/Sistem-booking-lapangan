@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Field;
 use App\Models\Schedule;
-use Illuminate\validation\Rule;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -58,7 +58,7 @@ class ScheduleController extends Controller
 
         // Mencegah jadwal yang waktunya tumpang tindih
         $bentrok = Schedule::where('field_id', $validated['field_id'])
-            ->where('tanggal', $validated['tanggal'])
+            ->whereDate('tanggal', $validated['tanggal'])
             ->where('jam_mulai', '<', $validated['jam_selesai'])
             ->where('jam_selesai', '>', $validated['jam_mulai'])
             ->exists();
@@ -132,7 +132,7 @@ class ScheduleController extends Controller
         }
 
         $bentrok = Schedule::where('field_id', $validated['field_id'])
-            ->where('tanggal', $validated['tanggal'])
+            ->whereDate('tanggal', $validated['tanggal'])
             ->where('jam_mulai', '<', $validated['jam_selesai'])
             ->where('jam_selesai', '>', $validated['jam_mulai'])
             ->where('id', '!=', $schedule->id)

@@ -15,6 +15,15 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    @if (Auth::user()->role === 'admin')
+                        <x-nav-link :href="route('admin.fields.index')" :active="request()->routeIs('admin.fields.*')">Lapangan</x-nav-link>
+                        <x-nav-link :href="route('admin.schedules.index')" :active="request()->routeIs('admin.schedules.*')">Jadwal</x-nav-link>
+                        <x-nav-link :href="route('admin.bookings.index')" :active="request()->routeIs('admin.bookings.*')">Booking</x-nav-link>
+                    @else
+                        <x-nav-link :href="route('customer.fields.index')" :active="request()->routeIs('customer.fields.*')">Cari Lapangan</x-nav-link>
+                        <x-nav-link :href="route('customer.bookings.index')" :active="request()->routeIs('customer.bookings.*')">Booking Saya</x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -70,6 +79,15 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            @if (Auth::user()->role === 'admin')
+                <x-responsive-nav-link :href="route('admin.fields.index')" :active="request()->routeIs('admin.fields.*')">Lapangan</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.schedules.index')" :active="request()->routeIs('admin.schedules.*')">Jadwal</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.bookings.index')" :active="request()->routeIs('admin.bookings.*')">Booking</x-responsive-nav-link>
+            @else
+                <x-responsive-nav-link :href="route('customer.fields.index')" :active="request()->routeIs('customer.fields.*')">Cari Lapangan</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('customer.bookings.index')" :active="request()->routeIs('customer.bookings.*')">Booking Saya</x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
