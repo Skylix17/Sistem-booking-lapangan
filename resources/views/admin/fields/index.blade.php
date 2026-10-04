@@ -42,6 +42,7 @@
                                 <td class="py-2 pr-4">Rp {{ number_format($field->harga_per_jam, 0, ',', '.') }}</td>
                                 <td class="py-2 pr-4"><x-status-badge :status="$field->status" /></td>
                                 <td class="py-2 whitespace-nowrap">
+                                    <a href="{{ route('admin.fields.show', $field) }}" class="mr-3 text-gray-600 dark:text-gray-300 hover:underline">Detail</a>
                                     <a href="{{ route('admin.fields.edit', $field) }}" class="text-indigo-600 hover:underline">Edit</a>
                                     <form method="POST" action="{{ route('admin.fields.destroy', $field) }}" class="inline"
                                           onsubmit="return confirm('Hapus lapangan ini?')">

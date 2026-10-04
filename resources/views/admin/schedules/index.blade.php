@@ -32,6 +32,7 @@
                                 <td class="py-2 pr-4">{{ substr($schedule->jam_mulai, 0, 5) }} - {{ substr($schedule->jam_selesai, 0, 5) }}</td>
                                 <td class="py-2 pr-4"><x-status-badge :status="$schedule->status" /></td>
                                 <td class="py-2 whitespace-nowrap">
+                                    <a href="{{ route('admin.schedules.show', $schedule) }}" class="mr-3 text-gray-600 dark:text-gray-300 hover:underline">Detail</a>
                                     <a href="{{ route('admin.schedules.edit', $schedule) }}" class="text-indigo-600 hover:underline">Edit</a>
                                     <form method="POST" action="{{ route('admin.schedules.destroy', $schedule) }}" class="inline"
                                           onsubmit="return confirm('Hapus jadwal ini?')">

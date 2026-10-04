@@ -41,10 +41,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
             })->name('dashboard');
 
             // Route untuk mengelola lapangan
-            Route::resource('fields', FieldController::class)->except('show');
+            Route::resource('fields', FieldController::class);
 
             // Route untuk mengelola jadwal
-            Route::resource('schedules', ScheduleController::class)->except('show');
+            Route::resource('schedules', ScheduleController::class);
 
             // Route untuk mengelola booking
             Route::get('/bookings', [BookingController::class, 'index'])
