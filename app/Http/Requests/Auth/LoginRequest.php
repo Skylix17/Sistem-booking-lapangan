@@ -42,8 +42,18 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        $credentials = $this->only('email', 'password');
+
+        // Hanya akun berstatus active yang boleh login
+        if (! Auth::attempt([...$credentials, 'status' => 'active'], $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
+
+            // Pesan khusus hanya jika email & password benar (agar status akun tidak bocor ke orang asing)
+            if (Auth::validate($credentials)) {
+                throw ValidationException::withMessages([
+                    'email' => 'Akun Anda nonaktif. Silakan hubungi admin.',
+                ]);
+            }
 
             throw ValidationException::withMessages([
                 'email' => trans('auth.failed'),

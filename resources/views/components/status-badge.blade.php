@@ -10,6 +10,8 @@
         'available'   => ['Tersedia', 'bg-green-100 text-green-800'],
         'booked'      => ['Terbooking', 'bg-indigo-100 text-indigo-800'],
         'unavailable' => ['Tidak Tersedia', 'bg-gray-200 text-gray-700'],
+        'active'      => ['Aktif', 'bg-green-100 text-green-800'],
+        'inactive'    => ['Nonaktif', 'bg-gray-200 text-gray-700'],
     ];
     [$label, $class] = $map[$status] ?? [$status, 'bg-gray-100 text-gray-700'];
 @endphp

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\FieldController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Customer\BookingController as CustomerBookingController;
@@ -14,7 +15,7 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth', 'verified', 'active'])->group(function () {
 
     Route::get('/dashboard', function () {
         if (auth()->user()->role === 'admin') {
@@ -45,6 +46,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
             // Route untuk mengelola jadwal
             Route::resource('schedules', ScheduleController::class);
+
+            // Route untuk mengelola data customer (BREAD)
+            Route::resource('customers', CustomerController::class);
 
             // Route untuk mengelola booking
             Route::get('/bookings', [BookingController::class, 'index'])

@@ -20,6 +20,7 @@
                         <x-nav-link :href="route('admin.fields.index')" :active="request()->routeIs('admin.fields.*')">Lapangan</x-nav-link>
                         <x-nav-link :href="route('admin.schedules.index')" :active="request()->routeIs('admin.schedules.*')">Jadwal</x-nav-link>
                         <x-nav-link :href="route('admin.bookings.index')" :active="request()->routeIs('admin.bookings.*')">Booking</x-nav-link>
+                        <x-nav-link :href="route('admin.customers.index')" :active="request()->routeIs('admin.customers.*')">Customer</x-nav-link>
                     @else
                         <x-nav-link :href="route('customer.fields.index')" :active="request()->routeIs('customer.fields.*')">Cari Lapangan</x-nav-link>
                         <x-nav-link :href="route('customer.bookings.index')" :active="request()->routeIs('customer.bookings.*')">Booking Saya</x-nav-link>
@@ -84,6 +85,7 @@
                 <x-responsive-nav-link :href="route('admin.fields.index')" :active="request()->routeIs('admin.fields.*')">Lapangan</x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('admin.schedules.index')" :active="request()->routeIs('admin.schedules.*')">Jadwal</x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('admin.bookings.index')" :active="request()->routeIs('admin.bookings.*')">Booking</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.customers.index')" :active="request()->routeIs('admin.customers.*')">Customer</x-responsive-nav-link>
             @else
                 <x-responsive-nav-link :href="route('customer.fields.index')" :active="request()->routeIs('customer.fields.*')">Cari Lapangan</x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('customer.bookings.index')" :active="request()->routeIs('customer.bookings.*')">Booking Saya</x-responsive-nav-link>
